@@ -60,7 +60,7 @@ export class OtherSuggestions extends Component {
       Swal.fire({
         title:
           document.dir == "ltr"
-            ? "The Place of Arbitration is Missing"
+            ? "The Seat of Arbitration is Missing"
             : "مكان التحكيم غير محددة",
         icon: "info",
       });
@@ -412,7 +412,7 @@ export class OtherSuggestions extends Component {
                   <FormGroup>
                     <Label style={labelStyle} for="placeOfArbitration">
                       {document.dir == "ltr"
-                        ? "Place of Arbitartion"
+                        ? "Seat of Arbitartion"
                         : "مكان التحكيم"}
                     </Label>
                     {alertPlaceOfArbitration ? (

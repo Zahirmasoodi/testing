@@ -418,8 +418,8 @@ export class Calculator extends Component {
               <Col>
                 {this.state.iicraFee ? (
                   <>
-                    <label>Administrative Fee</label>
-                    <b>: $ {this.state.iicraFee - this.state.iicraFee * 0.2}</b>
+                    <label>Administrative Fee : </label>
+                    <b> $ {this.state.iicraFee - this.state.iicraFee * 0.2}</b>
                   </>
                 ) : null}
               </Col>
@@ -429,8 +429,8 @@ export class Calculator extends Component {
               <Col>
                 {this.state.arbFee ? (
                   <>
-                    <label>Arbitral Tribunal Fee</label>
-                    <b> : $ {this.state.arbFee - this.state.arbFee * 0.2}</b>
+                    <label>Arbitral Tribunal Fee : </label>
+                    <b> $ {this.state.arbFee - this.state.arbFee * 0.2}</b>
                   </>
                 ) : null}
               </Col>
@@ -440,13 +440,12 @@ export class Calculator extends Component {
               <Col>
                 {this.state.iicraFee && this.state.arbFee ? (
                   <>
-                    <label>Total Fee: </label>$
+                    <label>Total Fee : </label> ${" "}
                     <s className="text text-danger">
                       {this.state.iicraFee + this.state.arbFee}{" "}
-                    </s>
+                    </s>{" "}
                     <b>
-                      {" "}
-                      $
+                      &nbsp;${" "}
                       {this.state.iicraFee -
                         this.state.iicraFee * 0.2 +
                         (this.state.arbFee - this.state.arbFee * 0.2)}

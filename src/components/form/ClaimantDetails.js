@@ -3057,7 +3057,7 @@ export class FormUserDetails extends Component {
                   <Card style={styles.cardBgSecondary} className="shadow">
                     <h6 style={styles.center}>
                       {document.dir == "ltr"
-                        ? "Applicant of RFA (Additional Claimant)"
+                        ? "Additional Claimant Details"
                         : "المحتكم الإضافي"}
                     </h6>
                     <CardBody>

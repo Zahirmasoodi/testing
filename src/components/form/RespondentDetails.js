@@ -616,7 +616,7 @@ export class FormPersonalDetails extends Component {
                     name="legal"
                     label={
                       document.dir == "ltr"
-                        ? "Additional Respondent"
+                        ? "Additional Respondent Details"
                         : "المحتكم ضده الثاني"
                     }
                     value={this.state.additionalRespondent}

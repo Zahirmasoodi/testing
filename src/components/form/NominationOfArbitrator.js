@@ -34,7 +34,7 @@ export class NominationOfArbitrator extends Component {
     enable3: false,
 
     alertArbitratorName: false,
-    alertArbitratorUserName: false,
+
     alertArbitratorAddress: false,
     alertArbitratorEmail: "",
     alertArbitratorNationality: false,
@@ -97,32 +97,26 @@ export class NominationOfArbitrator extends Component {
 
     const {
       arbitratorName,
-      arbitratorUserName,
+
       arbitratorAddress,
       arbitratorEmail,
       arbitratorNationality,
       arbitratorPhone,
       cvOfArbitrator,
+      numberOfArbitrators,
     } = this.props.values;
 
-    if (this.state.enable3) {
+    if (
+      this.state.enable3 &&
+      !validator.isEmpty(numberOfArbitrators) &&
+      numberOfArbitrators != ""
+    ) {
       if (validator.isEmpty(arbitratorName) || arbitratorName == "") {
         Swal.fire({
           title:
             document.dir == "ltr"
               ? "The name of the Arbitrator is Missing"
               : "لا يوجد إسم المحكم",
-          icon: "info",
-        });
-      } else if (
-        validator.isEmpty(arbitratorUserName) ||
-        arbitratorUserName == ""
-      ) {
-        Swal.fire({
-          title:
-            document.dir == "ltr"
-              ? "The username of the Arbitrator is Missing"
-              : "لا يوجد إسم المستخدم للمحكم",
           icon: "info",
         });
       } else if (
@@ -191,11 +185,26 @@ export class NominationOfArbitrator extends Component {
         this.props.nextStep();
       }
     } else {
-      if (this.state.enable1) {
+      if (
+        this.state.enable1 &&
+        !validator.isEmpty(numberOfArbitrators) &&
+        numberOfArbitrators != ""
+      ) {
         this.props.nextStep();
-      }
-      if (this.state.enable2) {
+      } else if (
+        this.state.enable2 &&
+        !validator.isEmpty(numberOfArbitrators) &&
+        numberOfArbitrators != ""
+      ) {
         this.props.nextStep();
+      } else {
+        Swal.fire({
+          title:
+            document.dir == "ltr"
+              ? "Select an option and Number of Arbitrators"
+              : "حدد خيارًا وعدد المحكمين",
+          icon: "info",
+        });
       }
     }
   };
@@ -214,7 +223,6 @@ export class NominationOfArbitrator extends Component {
 
     const {
       alertArbitratorName,
-      alertArbitratorUserName,
       alertArbitratorAddress,
       alertArbitratorEmail,
       alertArbitratorNationality,
@@ -372,8 +380,33 @@ export class NominationOfArbitrator extends Component {
         <h6 style={styles.center}>
           {document.dir == "ltr" ? "Nomination of Arbitrator" : "تسمية المحكم"}
         </h6>
+
         <Card style={styles.cardBg}>
           <CardBody>
+            <Row>
+              <Col xl={12} lg={12} md={12} sm={12}>
+                <FormGroup>
+                  <Label style={labelStyle} for="numberOfArbitrators">
+                    {document.dir == "ltr"
+                      ? `Select the Number of Arbitrator(s) as per the Arbitration
+                      Agreement or Arbitration Clause.`
+                      : "عدد المحكمين لسير إجراءات التحكيم"}
+                  </Label>
+                  <Input
+                    type="select"
+                    name="numberOfArbitrators"
+                    id="numberOfArbitrators"
+                    onChange={handleChange("numberOfArbitrators")}
+                    defaultValue={values.numberOfArbitrators}
+                  >
+                    <option></option>
+                    <option>{document.dir == "ltr" ? "1" : "١"}</option>
+                    <option>{document.dir == "ltr" ? "3" : "٣"}</option>
+                    <option>{document.dir == "ltr" ? "5" : "٥"}</option>
+                  </Input>
+                </FormGroup>
+              </Col>
+            </Row>
             <Form>
               <Card style={styles.cardBgSecondary} className="shadow">
                 <CardBody>
@@ -488,32 +521,6 @@ export class NominationOfArbitrator extends Component {
                             id="arbitratorName"
                             onChange={handleChange("arbitratorName")}
                             defaultValue={values.arbitratorName}
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col xl={6} lg={6} md={6} sm={12}>
-                        <FormGroup>
-                          <Label style={labelStyle} for="arbitratorUserName">
-                            {document.dir == "ltr"
-                              ? "User Name ( as per trade license )"
-                              : "حسب الرخصة التجارية"}
-                          </Label>
-                          {alertArbitratorUserName ? (
-                            <span style={styles.warning}>
-                              {document.dir == "ltr"
-                                ? " user name is required "
-                                : " إسم المستخدم مطلوب "}
-                            </span>
-                          ) : (
-                            <span style={styles.red}> *</span>
-                          )}
-                          <Input
-                            type="text"
-                            name="arbitratorUserName"
-                            id="arbitratorUserName"
-                            onChange={handleChange("arbitratorUserName")}
-                            defaultValue={values.arbitratorUserName}
                             required
                           />
                         </FormGroup>

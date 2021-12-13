@@ -49,7 +49,7 @@ export class Confirm extends Component {
 
     const {
       natureOfDispute,
-      numberOfArbitrators,
+      // numberOfArbitrators,
       valueOfDispute,
       recitals,
       legalGrounds,
@@ -64,17 +64,6 @@ export class Confirm extends Component {
           document.dir == "ltr"
             ? "The nature of Dispute is Missing"
             : "طبيعة النزاع مفقودة",
-        icon: "info",
-      });
-    } else if (
-      validator.isEmpty(numberOfArbitrators) ||
-      numberOfArbitrators == ""
-    ) {
-      Swal.fire({
-        title:
-          document.dir == "ltr"
-            ? "The number of Arbitrators is Missing"
-            : "عدد المحكمين غير محددة",
         icon: "info",
       });
     } else if (validator.isEmpty(valueOfDispute) || valueOfDispute == "") {
@@ -433,7 +422,7 @@ export class Confirm extends Component {
                 </Col>
               </Row>
 
-              <Row>
+              {/* <Row>
                 <Col xl={12} lg={12} md={12} sm={12}>
                   <FormGroup>
                     <Label style={labelStyle} for="numberOfArbitrators">
@@ -456,7 +445,7 @@ export class Confirm extends Component {
                     </Input>
                   </FormGroup>
                 </Col>
-              </Row>
+              </Row> */}
               <Row>
                 <Col xl={12} lg={12} md={12} sm={12}>
                   <FormGroup>
