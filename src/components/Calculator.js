@@ -419,7 +419,7 @@ export class Calculator extends Component {
                 {this.state.iicraFee ? (
                   <>
                     <label>Administrative Fee</label>
-                    <b> : $ {this.state.iicraFee}</b>
+                    <b>: $ {this.state.iicraFee - this.state.iicraFee * 0.2}</b>
                   </>
                 ) : null}
               </Col>
@@ -430,7 +430,7 @@ export class Calculator extends Component {
                 {this.state.arbFee ? (
                   <>
                     <label>Arbitral Tribunal Fee</label>
-                    <b> : $ {this.state.arbFee}</b>
+                    <b> : $ {this.state.arbFee - this.state.arbFee * 0.2}</b>
                   </>
                 ) : null}
               </Col>
@@ -440,8 +440,17 @@ export class Calculator extends Component {
               <Col>
                 {this.state.iicraFee && this.state.arbFee ? (
                   <>
-                    <label>Total Fee (After Discount)</label>
-                    <b>: $ {(this.state.iicraFee + this.state.arbFee) / 0.2}</b>
+                    <label>Total Fee: </label>$
+                    <s className="text text-danger">
+                      {this.state.iicraFee + this.state.arbFee}{" "}
+                    </s>
+                    <b>
+                      {" "}
+                      $
+                      {this.state.iicraFee -
+                        this.state.iicraFee * 0.2 +
+                        (this.state.arbFee - this.state.arbFee * 0.2)}
+                    </b>
                   </>
                 ) : null}
               </Col>
@@ -460,15 +469,22 @@ export class Calculator extends Component {
                 <tr>
                   <td>
                     {document.dir == "ltr"
-                      ? `This fee includes IICRA administrative fees, remuneration of Arbitral Tribunal, as well as 5% allocated amount to cover an additional expense for Arbitration (such as transportation expenses, arbitrators ’accommodation, translation costs, experts’ remuneration, etc.) and in case these expenses exceed the allocated amount, IICRA shall then mandate both parties or either of them to pay additional expenses (if any).`
+                      ? `1. This fee includes IICRA administrative fees, remuneration of Arbitral Tribunal, as well as 5% allocated amount to cover an additional expense for Arbitration (such as transportation expenses, arbitrators ’accommodation, translation costs, experts’ remuneration, etc.) and in case these expenses exceed the allocated amount, IICRA shall then mandate both parties or either of them to pay additional expenses (if any).`
                       : `1.	هذه الرسوم تشمل الرسوم الإدارية للمركز وأتعاب هيئة التحكيم، كما تشمل مبلغ قدره 5% مخصص لتغطية المصاريف الإضافية للتحكيم (على غرار مصاريف تنقل وسكن المحكمين، ونفقات الترجمة، وأتعاب خبراء الخ)، وفي حال تجاوزت تلك المصاريف ذلك المبلغ المخصص يقوم المركز بتكليف الأطراف أو أي منهم بسداد النفقات الإضافية (إن وجدت). `}
                   </td>
                 </tr>
                 <tr>
                   <td>
                     {document.dir == "ltr"
-                      ? `If dispute is resolved by reconciliation, these fees then shall be reduced by half as per IICRA decision case by case.`
+                      ? `2. If dispute is resolved by reconciliation, these fees then shall be reduced by half as per IICRA decision case by case.`
                       : `2.	في حال تم فض النزاع بالصلح، تخفض تلك الرسوم إلى النصف وفق القرار الصادر عن المركز حالة بحالة.`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {document.dir == "ltr"
+                      ? `3. With regard to IICRA being a non-profit organization, and in support of promoting Islamic Arbitration, IICRA is currently offering an additional 20% discount on the total arbitration cost & expenses, the arbitration expenses shown herewith are post applicable discount.`
+                      : `3. في إطار عدم ربحية المركز، ودعمًا لنشر ثقافة التحكيم الإسلامي يمنح المركز حاليًا خصمًا إضافيًا قدره 20% على نفقات التحكيم الإجالية، بحيث تظهر لديكم نفقات التحكيم بعد تطبيق الخصم المشار إليه.`}
                   </td>
                 </tr>
                 <tr>
