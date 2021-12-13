@@ -1,0 +1,44 @@
+.center {
+  color: white;
+  text-align: center;
+  background-color: #008f53;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+.formUserContainer {
+  margin-top: 10vh;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  background-color: #f6f6f6;
+  min-height: 100vh;
+}
+.cardBg {
+  background-color: #f6f6f6;
+  border: none;
+}
+.border {
+  border: 2px solid green !important;
+  color: blue;
+  margin-bottom: 1vh;
+  cursor: pointer;
+}
+.crumbContainer {
+  width: 100vw;
+  position: fixed;
+  top: 8vh;
+  padding-left: 0px;
+  padding-right: 0px;
+  z-index: 9;
+}
+.crumb {
+  color: green;
+  cursor: not-allowed;
+}
+.crumbTabs {
+  cursor: pointer;
+}
+.table {
+  text-align: center;
+}

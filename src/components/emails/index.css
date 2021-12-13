@@ -1,0 +1,35 @@
+.center {
+  color: white;
+  text-align: center;
+  background-color: #008f53;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+.button {
+  margin: 15;
+  background-color: #008f53;
+}
+.formUserContainer {
+  margin-top: 10vh;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  background-color: #f6f6f6;
+  min-height: 100vh;
+}
+.cardBg {
+  background-color: #f6f6f6;
+  border: 2px solid green;
+}
+.cardBgSecondary {
+  background-color: #f6f6f6;
+  margin-top: 3vh;
+}
+.header {
+  height: 100px;
+  max-width: 100%;
+}
+.letterContainer {
+  text-align: center;
+  background-color: #f6f6f6;
+  border: none;
+}
